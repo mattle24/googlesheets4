@@ -9,22 +9,23 @@ gs4_format_number(x = double(), pattern = "0.00")
 \arguments{
 \item{x}{Double.}
 
-\item{pattern}{Character. Defaults to "0.00", round with two significant digits.
-For options see \link{https://developers.google.com/sheets/api/guides/formats}}
+\item{pattern}{Character. Defaults to "0.00", ie round with two significant
+digits. For options see the \href{https://developers.google.com/sheets/api/guides/formats}{Google Documentation}.}
 }
 \value{
 An S3 vector of class \code{googlesheets4_format_number}.
 }
 \description{
-TODO
-In order to write a formula into Google Sheets, you need to store it as an
-object of class \code{googlesheets4_format_number}. This is how we distinguish a
-"regular" character string from a string that should be interpreted as a
-formula. \code{googlesheets4_format_number} is an S3 class implemented using the \href{https://vctrs.r-lib.org/articles/s3-vector.html}{vctrs package}.
+Often, we want to see our Google Sheets data in a "pretty" format, for
+example 0.45 as 45\%, without changing the underlying data. In order to format
+numbers into Google Sheets, you need to store it as an object of class
+\code{googlesheets4_format_number}. This is how we know how to format a given
+numeric vector. \code{googlesheets4_format_number} is an S3 class implemented
+using the \href{https://vctrs.r-lib.org/articles/s3-vector.html}{vctrs package}.
 }
 \examples{
 if (gs4_has_token()) {
-  dat <- data.frame(small_number = runif(12), big_number = runif(12) * 1e6)
+  dat <- data.frame(small_number = runif(10), big_number = runif(10) * 1e6)
   # explicitly declare columns as `googlesheets4_format_number`
   dat$small_number <- gs4_format_number(dat$small_number, "0.0\%")
   # from https://webapps.stackexchange.com/questions/77974/short-number-format-in-google-sheets-1-024-\%E2\%86\%92-1k-1-816-724-\%E2\%86\%92-1-8m
