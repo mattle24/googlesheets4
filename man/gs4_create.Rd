@@ -73,6 +73,7 @@ There is an article on writing Sheets:
 }
 
 Other write functions: 
+\code{\link{gs4_format_number}()},
 \code{\link{gs4_formula}()},
 \code{\link{range_delete}()},
 \code{\link{range_flood}()},

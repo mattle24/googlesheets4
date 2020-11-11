@@ -74,6 +74,7 @@ Makes a \code{DeleteRangeRequest}:
 
 Other write functions: 
 \code{\link{gs4_create}()},
+\code{\link{gs4_format_number}()},
 \code{\link{gs4_formula}()},
 \code{\link{range_flood}()},
 \code{\link{range_write}()},

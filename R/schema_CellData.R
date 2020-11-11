@@ -105,6 +105,11 @@ add_format <- function(x, fmt) {
   x
 }
 
+add_bg_color_format <- function(x, fmt) {
+  x[["userEnteredFormat"]][["background_color"]] <- list2(!!!fmt)
+  x
+}
+
 #' @export
 as_CellData.Date <- function(x, .na = NULL) {
   # 25569 = DATEVALUE("1970-01-01), i.e. Unix epoch as a serial date, when the
@@ -131,11 +136,10 @@ as_CellData.POSIXct <- function(x, .na = NULL) {
 }
 
 #' @export
-as_CellData.googlesheets4_format_numberlike <- function(x, .na = NULL) {
-  type <- attr(x, "type")
+as_CellData.googlesheets4_format_number <- function(x, .na = NULL) {
   pattern <- attr(x, "pattern")
   x <- cell_data(unclass(x), val_type = "numberValue", .na = .na)
-  map(x, add_format, fmt = list(type = type, pattern = pattern))
+  map(x, add_format, fmt = list(type = "NUMBER", pattern = pattern))
 }
 
 
