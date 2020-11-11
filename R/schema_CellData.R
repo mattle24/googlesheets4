@@ -137,7 +137,6 @@ as_CellData.googlesheets4_format_number <- function(x, .na = NULL) {
   map(x, add_format, fmt = list(type = "NUMBER", pattern = pattern))
 }
 
-
 # Currently (overly) focused on userEnteredValue, because I am thinking about
 # writing. But with a reading focus, one would want to see effectiveValue.
 format.googlesheets4_schema_CellData <- function(x, ...) {
