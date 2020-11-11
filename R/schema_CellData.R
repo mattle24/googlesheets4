@@ -131,9 +131,11 @@ as_CellData.POSIXct <- function(x, .na = NULL) {
 }
 
 #' @export
-as_CellData.googlesheets4_format <- function(x, .na = NULL) {
-  x <- cell_data(x, val_type = "numberValue", .na = .na)
-  map(x, add_format, fmt = list(type = attr(x, "type"), pattern = attr(lol, "pattern")))
+as_CellData.googlesheets4_format_numberlike <- function(x, .na = NULL) {
+  type <- attr(x, "type")
+  pattern <- attr(x, "pattern")
+  x <- cell_data(unclass(x), val_type = "numberValue", .na = .na)
+  map(x, add_format, fmt = list(type = type, pattern = pattern))
 }
 
 
