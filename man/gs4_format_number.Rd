@@ -4,12 +4,13 @@
 \alias{gs4_format_number}
 \title{Class for Google Sheets number formats}
 \usage{
-gs4_format_number(x = double(), pattern = character())
+gs4_format_number(x = double(), pattern = "0.00")
 }
 \arguments{
 \item{x}{Double.}
 
-\item{pattern}{Character. See \link{https://developers.google.com/sheets/api/guides/formats}}
+\item{pattern}{Character. Defaults to "0.00", round with two significant digits.
+For options see \link{https://developers.google.com/sheets/api/guides/formats}}
 }
 \value{
 An S3 vector of class \code{googlesheets4_format_number}.
@@ -17,9 +18,9 @@ An S3 vector of class \code{googlesheets4_format_number}.
 \description{
 TODO
 In order to write a formula into Google Sheets, you need to store it as an
-object of class \code{googlesheets4_formula}. This is how we distinguish a
+object of class \code{googlesheets4_format_number}. This is how we distinguish a
 "regular" character string from a string that should be interpreted as a
-formula. \code{googlesheets4_formula} is an S3 class implemented using the \href{https://vctrs.r-lib.org/articles/s3-vector.html}{vctrs package}.
+formula. \code{googlesheets4_format_number} is an S3 class implemented using the \href{https://vctrs.r-lib.org/articles/s3-vector.html}{vctrs package}.
 }
 \examples{
 if (gs4_has_token()) {
