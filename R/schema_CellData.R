@@ -105,11 +105,6 @@ add_format <- function(x, fmt) {
   x
 }
 
-add_bg_color_format <- function(x, fmt) {
-  x[["userEnteredFormat"]][["background_color"]] <- list2(!!!fmt)
-  x
-}
-
 #' @export
 as_CellData.Date <- function(x, .na = NULL) {
   # 25569 = DATEVALUE("1970-01-01), i.e. Unix epoch as a serial date, when the
@@ -160,4 +155,3 @@ print.googlesheets4_schema_CellData <- function(x, ...) {
   header <- as.character(glue("<CellData>"))
   cat(c(header, format(x)), sep = "\n")
 }
-
