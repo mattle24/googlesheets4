@@ -27,7 +27,7 @@ new_gs4_format_number <- function(x = double(), pattern = "0.00") {
 #'   dat <- data.frame(small_number = runif(10), big_number = runif(10) * 1e6)
 #'   # explicitly declare columns as `googlesheets4_format_number`
 #'   dat$small_number <- gs4_format_number(dat$small_number, "0.0%")
-#'   # from https://webapps.stackexchange.com/questions/77974/short-number-format-in-google-sheets-1-024-%E2%86%92-1k-1-816-724-%E2%86%92-1-8m
+#'   # from https://webapps.stackexchange.com/questions/77974
 #'   dat$big_number <- gs4_format_number(dat$big_number, "[>999999]0.0,,\\M;[>999]0.0,\\K;0")
 #'
 #'   # make the sheet
