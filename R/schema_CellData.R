@@ -130,6 +130,13 @@ as_CellData.POSIXct <- function(x, .na = NULL) {
   )
 }
 
+#' @export
+as_CellData.googlesheets4_format_number <- function(x, .na = NULL) {
+  pattern <- attr(x, "pattern")
+  x <- cell_data(unclass(x), val_type = "numberValue", .na = .na)
+  map(x, add_format, fmt = list(type = "NUMBER", pattern = pattern))
+}
+
 # Currently (overly) focused on userEnteredValue, because I am thinking about
 # writing. But with a reading focus, one would want to see effectiveValue.
 format.googlesheets4_schema_CellData <- function(x, ...) {
