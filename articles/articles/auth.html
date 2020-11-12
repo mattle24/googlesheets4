@@ -136,7 +136,8 @@
 
       
 
-      </header><script src="auth_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="auth_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="auth_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
+<script src="auth_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>googlesheets4 auth</h1>
@@ -149,6 +150,7 @@
 
     
     
+<pre><code>No token available. Code chunks will not be evaluated.</code></pre>
 <p>googlesheets4 will, by default, help you interact with Sheets as an authenticated Google user. The package facilitates this process upon first need.</p>
 <div id="gs4_deauth" class="section level2">
 <h2 class="hasAnchor">
@@ -156,13 +158,14 @@
 </h2>
 <p>If you don’t need to access private Sheets, use <code><a href="../../reference/gs4_deauth.html">gs4_deauth()</a></code> to indicate there is no need for a token. This puts googlesheets4 into a de-authorized mode.</p>
 <p>Here’s how an R script might look if all you plan to do is read Sheets that are world-readable or readable by “anyone with a link”:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">googlesheets4</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidyverse/googlesheets4">googlesheets4</a></span><span class="op">)</span>
 
-<span class="fu"><a href="../../reference/gs4_deauth.html">gs4_deauth</a></span>()
+<span class="fu"><a href="../../reference/gs4_deauth.html">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># imagine this is the URL or ID of a Sheet readable by anyone (with a link)</span>
-<span class="no">ss</span> <span class="kw">&lt;-</span> <span class="st">"?????"</span>
-<span class="no">dat</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../../reference/range_read.html">read_sheet</a></span>(<span class="no">ss</span>)</pre></body></html></div>
+<span class="va">ss</span> <span class="op">&lt;-</span> <span class="st">"?????"</span>
+<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">ss</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="default-auth-behaviour-and-beyond" class="section level2">
 <h2 class="hasAnchor">
